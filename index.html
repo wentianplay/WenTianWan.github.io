@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>文天玩WenTianPlay</title>
+    <link id="icon" rel="shortcut icon" href="https://www.wentianplay.com/index/API/assets/icon.ico">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#165DFF',
+                        secondary: '#FF7D00',
+                        dark: '#1D2129',
+                        light: '#F2F3F5',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    <style type="text/tailwindcss">
+        @layer utilities {
+            .content-auto {
+                content-visibility: auto;
+            }
+            .text-shadow {
+                text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            }
+            .animate-float {
+                animation: float 3s ease-in-out infinite;
+            }
+            .bg-gradient {
+                background: linear-gradient(135deg, #165DFF 0%, #0A2463 100%);
+            }
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+    </style>
+</head>
+<body class="bg-dark text-light min-h-screen flex flex-col">
+    <!-- 导航栏 -->
+    <nav class="fixed w-full bg-dark/80 backdrop-blur-md z-50 transition-all duration-300" id="navbar">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center">
+                    <a href="#" class="flex items-center">
+                        <img src="https://www.wentianplay.com/index/API/assets/icon.ico" alt="Logo" class="h-8 w-8 mr-2">
+                        <span class="text-xl font-bold text-white">文天玩WenTianPlay</span>
+                    </a>
+                </div>
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-center space-x-4">
+                        <a href="#" class="text-white hover:text-primary transition-colors duration-300 px-3 py-2 rounded-md text-sm font-medium">首页</a>
+                        <a href="#" class="text-white hover:text-primary transition-colors duration-300 px-3 py-2 rounded-md text-sm font-medium">作品</a>
+                        <a href="#" class="text-white hover:text-primary transition-colors duration-300 px-3 py-2 rounded-md text-sm font-medium">关于</a>
+                        <a href="#" class="text-white hover:text-primary transition-colors duration-300 px-3 py-2 rounded-md text-sm font-medium">联系我们</a>
+                    </div>
+                </div>
+                <div class="md:hidden">
+                    <button type="button" class="text-gray-300 hover:text-white focus:outline-none" id="mobile-menu-button">
+                        <i class="fa-solid fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- 移动端菜单 -->
+        <div class="hidden md:hidden bg-dark/95 backdrop-blur-md" id="mobile-menu">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <a href="#" class="block px-3 py-2 rounded-md text-base font-medium text-white hover:bg-primary/20">首页</a>
+                <a href="#" class="block px-3 py-2 rounded-md text-base font-medium text-white hover:bg-primary/20">作品</a>
+                <a href="#" class="block px-3 py-2 rounded-md text-base font-medium text-white hover:bg-primary/20">关于</a>
+                <a href="#" class="block px-3 py-2 rounded-md text-base font-medium text-white hover:bg-primary/20">联系我们</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 主要内容 -->
+    <main class="flex-grow flex items-center justify-center relative overflow-hidden">
+        <!-- 背景效果 -->
+        <div class="absolute inset-0 bg-gradient opacity-80"></div>
+        <div class="absolute inset-0">
+            <div class="absolute top-1/4 left-1/4 w-64 h-64 bg-primary/20 rounded-full filter blur-3xl"></div>
+            <div class="absolute bottom-1/4 right-1/4 w-80 h-80 bg-secondary/20 rounded-full filter blur-3xl"></div>
+        </div>
+
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="max-w-3xl mx-auto text-center">
+                <div class="mb-8 animate-float">
+                    <img src="https://www.wentianplay.com/index/API/assets/icon.ico" alt="文天玩WenTianPlay" class="h-24 w-24 mx-auto rounded-full shadow-lg">
+                </div>
+                <h1 class="text-[clamp(2rem,5vw,3.5rem)] font-bold mb-4 text-white text-shadow">文天玩WenTianPlay</h1>
+                <p class="text-[clamp(1rem,2vw,1.25rem)] text-gray-300 mb-8 leading-relaxed">
+                    欢迎来到文天玩官方网站，我们致力于提供高质量的小说阅读体验。
+                    现在，我们将引导您前往我们的最新作品《天彬》。
+                </p>
+
+                <div class="bg-white/10 backdrop-blur-md rounded-xl p-6 mb-8 border border-white/20 shadow-xl">
+                    <h2 class="text-xl font-semibold text-white mb-4">即将跳转到</h2>
+                    <a href="https://book.qidian.com/info/1041003789/" class="text-primary hover:text-primary/80 text-lg font-medium flex items-center justify-center">
+                        <i class="fa-solid fa-book-open mr-2"></i>
+                        天彬 - 起点中文网
+                    </a>
+
+                    <div class="mt-4 relative">
+                        <div class="h-2 bg-gray-700 rounded-full overflow-hidden">
+                            <div class="h-full bg-primary rounded-full" id="progress-bar" style="width: 100%"></div>
+                        </div>
+                        <p class="mt-2 text-sm text-gray-400">如果您的浏览器没有自动跳转，请点击下方按钮</p>
+                    </div>
+                </div>
+
+                <a href="https://book.qidian.com/info/1041003789/" class="inline-flex items-center justify-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-primary hover:bg-primary/90 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary transition-all duration-300 transform hover:scale-105">
+                    <i class="fa-solid fa-arrow-right mr-2"></i>
+                    立即访问
+                </a>
+            </div>
+        </div>
+    </main>
+
+    <!-- 页脚 -->
+    <footer class="bg-dark/90 backdrop-blur-md py-8 border-t border-gray-800">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-4 md:mb-0">
+                    <div class="flex items-center">
+                        <img src="https://www.wentianplay.com/index/API/assets/icon.ico" alt="Logo" class="h-6 w-6 mr-2">
+                        <span class="text-lg font-bold text-white">文天玩WenTianPlay</span>
+                    </div>
+                    <p class="text-gray-500 text-sm mt-1">© 2025 文天玩. 保留所有权利.</p>
+                </div>
+                <div class="flex space-x-6">
+                    <a href="#" class="text-gray-400 hover:text-white transition-colors duration-300">
+                        <i class="fa-brands fa-weibo text-xl"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-white transition-colors duration-300">
+                        <i class="fa-brands fa-wechat text-xl"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-white transition-colors duration-300">
+                        <i class="fa-brands fa-qq text-xl"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-white transition-colors duration-300">
+                        <i class="fa-brands fa-bilibili text-xl"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // 导航栏滚动效果
+        window.addEventListener('scroll', function() {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('py-2', 'shadow-lg');
+                navbar.classList.remove('py-4');
+            } else {
+                navbar.classList.add('py-4');
+                navbar.classList.remove('py-2', 'shadow-lg');
+            }
+        });
+
+        // 移动端菜单切换
+        document.getElementById('mobile-menu-button').addEventListener('click', function() {
+            const mobileMenu = document.getElementById('mobile-menu');
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // 自动跳转
+        setTimeout(function() {
+            window.location.href = 'https://book.qidian.com/info/1041003789/';
+        }, 5000); // 5秒后跳转
+
+        // 进度条动画
+        const progressBar = document.getElementById('progress-bar');
+        let width = 100;
+        const interval = setInterval(function() {
+            if (width <= 0) {
+                clearInterval(interval);
+            } else {
+                width--;
+                progressBar.style.width = width + '%';
+            }
+        }, 50); // 每50ms减少1%
+    </script>
+</body>
+</html>
